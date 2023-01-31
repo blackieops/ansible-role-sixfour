@@ -1,7 +1,5 @@
 # IPv6 for IPv4-only Services
 
-[![Molecule Tests](https://github.com/blackieops/ansible-role-sixfour/actions/workflows/test.yml/badge.svg)](https://github.com/blackieops/ansible-role-sixfour/actions/workflows/test.yml)
-
 This is an [Ansible][ansible] role for configuring `socat` tunnels as systemd
 services to proxy IPv6 traffic to services that can only listen on IPv4. This
 allows you to provide IPv6 connections to your clients, even if what you're
