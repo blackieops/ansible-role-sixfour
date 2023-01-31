@@ -1,0 +1,21 @@
+---
+
+- name: Ensure socat is installed
+  ansible.builtin.package:
+    name: socat
+    state: present
+
+- name: Add systemd service configuration
+  ansible.builtin.template:
+    src: sixfour@.service
+    dest: /etc/systemd/system/sixfour@.service
+    mode: 0644
+  notify:
+    - Reload systemd
+
+- name: Ensure service is started and enabled
+  ansible.builtin.service:
+    name: sixfour@{{ item }}
+    state: started
+    enabled: true
+  with_items: "{{ sixfour_ports }}"

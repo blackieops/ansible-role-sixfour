@@ -1,0 +1,11 @@
+[Unit]
+Description=IPv6 tunnel %i
+After=network-online.target
+
+[Service]
+ExecStart=socat TCP6-LISTEN:%i,fork TCP4:0.0.0.0:%i
+User=root
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
